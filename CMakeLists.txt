@@ -1,0 +1,16 @@
+cmake_minimum_required(VERSION 3.1)
+
+project(sbox VERSION 1.0
+                  DESCRIPTION "sandbox image demo"
+                  LANGUAGES CXX)
+
+set(CMAKE_CXX_FLAGS "-Wall -O3")
+
+set(CMAKE_CXX_STANDARD 17 CACHE STRING "The C++ standard to use")
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS ON)
+
+set(CMAKE_THREAD_PREFER_PTHREAD TRUE)
+
+add_executable(sbox sbox.cc)
+
