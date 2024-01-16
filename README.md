@@ -1,8 +1,8 @@
 # sbox
 Demo of how to resize PNG images using the excellent [STB image manipulation routines](https://github.com/nothings/stb) 
-from within a Linux SECCOMP_STRICT sandbox.
+from within a Linux SECCOMP_STRICT sandbox. Based on a suggestion by [Thomas Dullien](https://github.com/thomasdullien), implemented with help from [Otto Moerbeek](https://github.com/omoerbeek) ([who knows malloc](https://www.openbsd.org/papers/eurobsdcon2023-otto-malloc.pdf)).
 
-Based on a suggestion by [Thomas Dullien](https://github.com/thomasdullien). The STB authors freely admit that they might have security problems, and that they'll discuss their security issues in public. For this reason, a sandbox is nice to have.
+The STB authors freely admit that they might have security problems, and that they'll discuss their security issues in public. For this reason, a sandbox is nice to have. 
 
 SECCOMP_STRICT really allows almost nothing, not even asking the kernel for more memory. Very secure of course, but this messes with later calls to malloc(). 
 
