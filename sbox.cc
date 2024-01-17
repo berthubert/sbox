@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <map>
 #include <vector>
-#define STBI_FAILURE_USERMSG
+
 #define STBI_ONLY_PNG
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_RESIZE_IMPLEMENTATION
@@ -20,7 +20,6 @@
 #include "stb_image_write.h"
 
 using namespace std;
-
 
 auto readFromFDToVector(int fileDescriptor) {
     const int bufferSize = 4096;  // Adjust the buffer size according to your needs
@@ -66,7 +65,7 @@ int main(int argc, char **argv)
     prctl(PR_SET_SECCOMP, SECCOMP_MODE_STRICT);
   else {
     cerr<<"Out of memory\n";
-    syscall(SYS_exit, 0);
+    syscall(SYS_exit, 0); // regular exit calls exit_group, & SECCOMP strict doesn't allow that
   }
   free(ptr);
   
