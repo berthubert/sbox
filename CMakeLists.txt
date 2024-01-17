@@ -11,4 +11,5 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS ON)
 
 add_executable(sbox sbox.cc)
+add_executable(example-client example-client.cc client.cc)
 

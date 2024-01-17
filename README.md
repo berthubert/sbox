@@ -13,5 +13,23 @@ In the code you'll find some fun notes on how compilers make it hard to actually
 ## What the sbox program does
 You can pipe a PNG image (and only a PNG image) to the process, and it will return a 200 pixel wide version of it. That's it. But it does all the exciting things from within SECCOMP_STRICT, which is nice.
 
+## How to use this from your code
+A demo is in [example-client.cc](example-client.cc), but the gist is: 
+
+```C++
+#include "client.hh"
+int main(int argc, char** argv)
+{
+  string png = readFile(argv[1]);
+  string thumbnail = getThumbnailFromSandbox(png, {"./sbox"});
+}
+```
+This will fork() and setup connectivity to the sandboxed process, and then
+launches it for you.
+
+You could also add more parameters to getThumbnailFromSandbox, and perhaps
+teach the sandbox to use these paramters (so you could specify the desired
+dimensions of the thumbnail, for example).
+
 ## Why?
 This code might end up in [Trifecta](https://berthub.eu/articles/trifecta), an image sharing site mean to be secure & an example of how to write simple, compact but useful software.
