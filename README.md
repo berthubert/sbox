@@ -28,7 +28,7 @@ This will fork() and setup connectivity to the sandboxed process, and then
 launches it for you.
 
 You could also add more parameters to getThumbnailFromSandbox, and perhaps
-teach the sandbox to use these paramters (so you could specify the desired
+teach the sandbox to use these parameters (so you could specify the desired
 dimensions of the thumbnail, for example).
 
 ## Why?
